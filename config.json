@@ -1,0 +1,8 @@
+{
+    "Database_Username": "root",
+    "Database_Password":"@HelloWorld2002#",
+    "Database_host":"localhost",
+    "Database_name": "Elmshow",
+    "Database_port": "3306",
+    "total_question": "2"
+}
