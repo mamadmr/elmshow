@@ -1,7 +1,12 @@
 import connector
 
+
+add_users = False
+add_teams = False
+add_to_storage = False
+
 # add 13 new users and 1 admin to the database
-if False:
+if add_users:
     connector.run_sql("""INSERT INTO Users (name, username, password) VALUES ('admin', 'admin', 'admin')""")
     connector.run_sql("""INSERT INTO Users (name, username, password) VALUES ('user1', 'user1', 'user1')""")
     connector.run_sql("""INSERT INTO Users (name, username, password) VALUES ('user2', 'user2', 'user2')""")
@@ -19,7 +24,7 @@ if False:
 
 
 # add 22 new teams to the database
-if False:
+if add_teams:
     connector.run_sql("""INSERT INTO Teams (id, name, money, score, questions_in_hand, questions_backed_with_answer, questions_backed_without_answer, questions_to_sell, questions_sold, questions_bought, answers_to_check, answers_checked, answers_to_sell, answers_sold, answers_bought)
                     VALUE 
                       (1, 'team1', 1000, 0, '', '', '', '', '', '', '', '', '', '', ''),
@@ -48,7 +53,7 @@ if False:
 
 
 # add 10 new questions to the Storage table
-if True:
+if add_to_storage:
     connector.run_sql("""INSERT INTO Storage (question_id, time_added) VALUES (1111, '00:00:00')""")
     connector.run_sql("""INSERT INTO Storage (question_id, time_added) VALUES (1112, '00:00:00')""")
     connector.run_sql("""INSERT INTO Storage (question_id, time_added) VALUES (1113, '00:00:00')""")
