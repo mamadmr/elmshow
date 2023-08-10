@@ -4,5 +4,6 @@
     "Database_host":"localhost",
     "Database_name": "Elmshow",
     "Database_port": "3306",
-    "total_question": "2"
+    "total_question": 2,
+    "question_price": 200
 }

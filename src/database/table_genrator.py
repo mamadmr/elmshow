@@ -36,7 +36,7 @@ connector.run_sql("""CREATE TABLE Teams (
 #   1: question_with_answer
 #   2: question_without_answer 
 connector.run_sql("""CREATE TABLE Questions(
-                  id INT NOT NULL,
+                  id INT NOT NULL AUTO_INCREMENT,
                   PRIMARY KEY (`id`),
                   question_id INT NOT NULL,
                   output_time VARCHAR(10) NOT NULL,

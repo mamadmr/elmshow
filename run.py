@@ -13,9 +13,11 @@ app.config['config'] = config
 
 # import blueprints
 from src.blueprints.index import index_blue
+from src.blueprints.get_question_from_storage import get_question_blue
 
 # register blueprints
 app.register_blueprint(index_blue)
+app.register_blueprint(get_question_blue)
 
 
 if __name__ == '__main__':
