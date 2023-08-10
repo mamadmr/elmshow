@@ -48,7 +48,12 @@ def get_question_func(user_id):
     output_dict['message'] = "success"
     output_dict['question_id'] = question_id
     output_dict['team_name'] = get_name(team_id)
-
+    # check if we have at most config["total_question"] questions in hand
+    response = len(run_sql(f"""SELECT questions_in_hand FROM Teams WHERE id = {team_id}""")[0][0].split(',')) - 1
+    if response >= current_app.config['config']['total_question']:
+        output_dict["message"] = "too many questions in hand"
+        return output_dict, 400
+      
     # update the database
     # subtract money from team_id
     run_sql(f"""UPDATE Teams SET money = money - {current_app.config['config']['question_price']} WHERE id = {team_id}""")
