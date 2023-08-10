@@ -1,7 +1,10 @@
 from flask import Blueprint
+from src.tools.check_login import check_login
+
 
 index_blue = Blueprint('index', __name__)
 
 @index_blue.route('/', methods=['GET'])
-def index_func():
-    return "Welcome to ElmShow"
+@check_login
+def index_func(user_id):
+    return "Welcome to ElmShow user " + str(user_id)
