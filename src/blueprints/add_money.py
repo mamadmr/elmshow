@@ -35,7 +35,7 @@ def add_money_func(user_id):
 
     # update database
     run_sql(f""" UPDATE Teams SET money = money + {amount} WHERE id = {team_id}""")
-
+    run_sql(f""" INSERT AmusementPark (user_id, time, money_added) VALUES ({user_id}, '{current_time}', {amount})""") 
     output_dict['message'] = "success"
     output_dict['team_name'] = get_name(team_id)
     output_dict['money'] = run_sql(f""" SELECT money FROM Teams WHERE id = {team_id}""")[0][0]
