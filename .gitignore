@@ -1,3 +1,4 @@
 .DS_Store
 src/database/__pycache__/
+src/blueprints/__pycache__/
 .vscode/
