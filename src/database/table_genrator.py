@@ -55,9 +55,14 @@ connector.run_sql("""CREATE TABLE Answers(
                     question_id INT NOT NULL,
                     team_id INT NOT NULL,
                     time VARCHAR(10) NOT NULL,
-                    score INT NOT NULL,
-                    is_sellable INT NOT NULL,
+                    user_id INT NOT NULL,
+                    user_id_check INT,
+                    time_check VARCHAR(10),
+                    score INT,
+                    is_sellable INT,
                     FOREIGN KEY (question_id) REFERENCES Questions(id),
+                    FOREIGN KEY (user_id) REFERENCES Users(id),
+                    FOREIGN KEY (user_id_check) REFERENCES Users(id),
                     FOREIGN KEY (team_id) REFERENCES Teams(id)
                   )""")               
  

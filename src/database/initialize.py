@@ -1,9 +1,9 @@
 import connector
 
 
-add_users = False
-add_teams = False
-add_to_storage = False
+add_users = True
+add_teams = True
+add_to_storage = True
 
 # add 13 new users and 1 admin to the database
 if add_users:
