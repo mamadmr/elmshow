@@ -60,7 +60,6 @@ connector.run_sql("""CREATE TABLE Answers(
                     time_check VARCHAR(10),
                     score INT,
                     is_sellable INT,
-                    FOREIGN KEY (question_id) REFERENCES Questions(id),
                     FOREIGN KEY (user_id) REFERENCES Users(id),
                     FOREIGN KEY (user_id_check) REFERENCES Users(id),
                     FOREIGN KEY (team_id) REFERENCES Teams(id)
@@ -83,7 +82,6 @@ connector.run_sql("""CREATE TABLE Bank(
                     price INT NOT NULL,
                     changes VARCHAR(500) NOT NULL,
                     status INT NOT NULL,
-                    FOREIGN KEY (question_id) REFERENCES Questions(id),
                     FOREIGN KEY (answer_id) REFERENCES Answers(id),
                     FOREIGN KEY (team_seller_id) REFERENCES Teams(id),
                     FOREIGN KEY (user_id_add_to_bank) REFERENCES Users(id),
