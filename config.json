@@ -5,5 +5,6 @@
     "Database_name": "Elmshow",
     "Database_port": "3306",
     "total_question": 2,
+    "total_question_in_bank": 1,
     "question_price": 200
 }

@@ -19,6 +19,7 @@ from src.blueprints.return_question_with_answer import return_question_with_answ
 from src.blueprints.enter_score import enter_score_blue
 from src.blueprints.edit_score import edit_score_blue
 from src.blueprints.add_money import add_money_blue 
+from src.blueprints.sell_question import sell_question_blue
 
 # register blueprints
 app.register_blueprint(index_blue)
@@ -28,6 +29,7 @@ app.register_blueprint(return_question_with_answer_blue)
 app.register_blueprint(enter_score_blue)
 app.register_blueprint(edit_score_blue)
 app.register_blueprint(add_money_blue)
+app.register_blueprint(sell_question_blue)
 
 if __name__ == '__main__':
     app.run(debug=True)
