@@ -44,6 +44,10 @@ def edit_score_func(user_id):
         output_dict["message"] = "sellable is missing"
         return output_dict, 400
     sellable = input_data['sellable']
+    # check if the answer is for this team
+    if str(answer_id) not in run_sql(f""" SELECT answers_checked FROM Teams WHERE id = {team_id}""")[0][0].split(','):
+        output_dict["message"] = "team does not have this answer"
+        return output_dict, 400
 
     # check if the answer_id in the teams answers_checked
     team_answers = run_sql(f""" SELECT answers_checked FROM Teams WHERE id = {team_id}""")
