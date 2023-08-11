@@ -40,4 +40,4 @@ app.register_blueprint(sell_answer_blue)
 app.register_blueprint(buy_answer_blue)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="192.168.50.100", port=12345) 
