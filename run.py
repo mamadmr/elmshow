@@ -23,6 +23,7 @@ from src.blueprints.sell_question import sell_question_blue
 from src.blueprints.buy_question import buy_question_blue
 from src.blueprints.update_price import update_price_blue   
 from src.blueprints.sell_answer import sell_answer_blue
+from src.blueprints.buy_answer import buy_answer_blue
 
 # register blueprints
 app.register_blueprint(index_blue)
@@ -36,6 +37,7 @@ app.register_blueprint(sell_question_blue)
 app.register_blueprint(buy_question_blue)
 app.register_blueprint(update_price_blue)
 app.register_blueprint(sell_answer_blue)
+app.register_blueprint(buy_answer_blue)
 
 if __name__ == '__main__':
     app.run(debug=True)
