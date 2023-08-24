@@ -62,6 +62,7 @@ def buy_answer_func(user_id):
     # it's not sold
     if run_sql(f""" SELECT status FROM Bank WHERE id = {bank_id}""")[0][0] != 1:
         output_dict["message"] = "this item is not for sale"
+        return output_dict, 400
 
     # check if team has enough money
     if get_money(buyer_id) < price:

@@ -15,19 +15,39 @@ enter_score_blue = Blueprint('enter_score', __name__)
 @enter_score_blue.route('/enter_score', methods=['POST'])
 @check_login
 def enter_score_func(user_id):
+    '''
+        input data should include:
+            team_id: int
+            answer_id: int
+            score: int
+            sellable: int
+        output data should include:
+            message: str
+            team_name: str
+
+    '''
+    # initialize time variable
     now = datetime.datetime.now()
     current_time = f'{now.hour}:{now.minute}'
+
+    # get input_data
     input_data = request.form.to_dict()
+
+    # initialize output_dict
     output_dict = {"message": "", "team_name": ""}
+
+    # check if team_id is in input_data
     if "team_id" not in input_data:
         output_dict["message"] = "team_id is missing"
         return output_dict, 400
     
+    # check if team_id is valid
     team_id = input_data["team_id"]
     if not check_team(team_id):
         output_dict["message"] = "this team does not exist"
         return output_dict, 400
     
+    # check if answer_id is in input_data
     if "answer_id" not in input_data:
         output_dict["message"] = "answer_id is missing"
         return output_dict, 400
@@ -44,6 +64,11 @@ def enter_score_func(user_id):
         output_dict["message"] = "sellable is missing"
         return output_dict, 400
     sellable = input_data['sellable']
+    
+    # check if the sellable is valid
+    if sellable not in ['0', '1']:
+        output_dict["message"] = "sellable is not valid"
+        return output_dict, 400
 
     # check if the answer_id in the teams answers_to_check
     team_answers = run_sql(f""" SELECT answers_to_check FROM Teams WHERE id = {team_id}""")
